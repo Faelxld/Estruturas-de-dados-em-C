@@ -12,7 +12,7 @@ int main (){
 		
 	cria_vet(vet);
 	imprime_vet(vet);
-	insertionSort(vet,TAM);
+	shellSort(vet,TAM);
 	
 }
 
@@ -31,20 +31,22 @@ void imprime_vet(int vet[]){
 	
 		printf("\n");
 }
-void selection_sort(int num[], int tam) 
-{ 
-  int i, j, min, aux;
-  for (i = 0; i < (tam-1); i++) 
-  {
-     min = i;
-     for (j = (i+1); j < tam; j++) {
-       if(num[j] < num[min]) 
-         min = j;
-     }
-     if (i != min) {
-       aux = num[i];
-       num[i] = num[min];
-       num[min] = aux;
-     }
-  }
+void shellSort(int *vet, int size) {
+    int i , j , value;
+    int k = 1;
+    while(k < size) {
+        k = 3*k+1;
+    }
+    while ( k > 1) {
+        k /= 3;
+        for(i = k; i < size; i++) {
+            value = vet[i];
+            j = i - k;
+            while (j >= 0 && value < vet[j]) {
+                vet [j + k] = vet[j];
+                j -= k;
+            }
+            vet [j + k] = value;
+        }
+    }
 }
