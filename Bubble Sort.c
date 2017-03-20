@@ -7,8 +7,7 @@ void cria_vet(int []);
 void imprime_vet(int vet[]);
 void bubbleSort(int[], int);
 void bolha_rec(int[], int );
-void selection_sort(int[], int); 
-void insertionSort(int original[], int length);
+
 
 int main (){
 	int vet[TAM];
@@ -29,11 +28,11 @@ void cria_vet(int vet[]){
 }
 void imprime_vet(int vet[]){
 	int i;
+		
+	for(i = 0; i < TAM; i++)
+		printf(" %d",vet[i]);
 	
-		for(i = 0; i < TAM; i++)
-			printf(" %d",vet[i]);
-	
-		printf("\n");
+printf("\n");
 }
 
 void bubbleSort(int v[], int n){
@@ -47,12 +46,8 @@ void bubbleSort(int v[], int n){
 				v[j+1] = temp;
 				troca = 1;	
 			}
-	if(troca == 0)
-		return;	
-
-								
-			
-}
-			
-
+		if(troca == 0)
+	 	  return;	
+										
+		}
 }
